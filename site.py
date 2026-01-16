@@ -10,7 +10,15 @@ st.set_page_config(
     layout="wide"
 )
 
+# ===============================
+# LOGO JPEG
+# ===============================
 logo = Image.open("logo.jpeg")
+
+# ===============================
+# LINK WHATSAPP COM TEXTO
+# ===============================
+WHATS_LINK = "https://wa.me/5521967184404?text=Tenho%20interesse%20na%20solu%C3%A7%C3%A3o%20financeira."
 
 # ===============================
 # CSS PREMIUM
@@ -27,7 +35,6 @@ html, body, [class*="css"] {
     background-color: #f4f6f9;
 }
 
-/* HERO */
 .hero {
     background: linear-gradient(135deg, #052e1c, #0f5132);
     padding: 60px;
@@ -36,7 +43,6 @@ html, body, [class*="css"] {
     margin-bottom: 50px;
 }
 
-/* CARDS */
 .card {
     background: white;
     padding: 28px;
@@ -45,7 +51,6 @@ html, body, [class*="css"] {
     margin-bottom: 30px;
 }
 
-/* TITLES */
 .section-title {
     font-size: 28px;
     font-weight: 700;
@@ -53,7 +58,6 @@ html, body, [class*="css"] {
     color: #052e1c;
 }
 
-/* BADGE */
 .badge {
     background: #16a34a;
     color: white;
@@ -65,7 +69,6 @@ html, body, [class*="css"] {
     margin-bottom: 12px;
 }
 
-/* CTA */
 .cta {
     background: linear-gradient(135deg, #16a34a, #22c55e);
     padding: 18px 36px;
@@ -76,7 +79,6 @@ html, body, [class*="css"] {
     font-size: 18px;
 }
 
-/* WHATSAPP */
 .whats {
     position: fixed;
     bottom: 28px;
@@ -94,7 +96,6 @@ html, body, [class*="css"] {
     z-index: 9999;
 }
 
-/* FOOTER */
 .footer {
     text-align: center;
     color: #6b7280;
@@ -106,7 +107,7 @@ html, body, [class*="css"] {
 """, unsafe_allow_html=True)
 
 # ===============================
-# HERO (TOPO)
+# HERO
 # ===============================
 col1, col2 = st.columns([1, 2])
 
@@ -114,7 +115,7 @@ with col1:
     st.image(logo, width=180)
 
 with col2:
-    st.markdown("""
+    st.markdown(f"""
     <div class="hero">
         <h1>Invest Money Bank</h1>
         <h3>Banco Digital de Soluções Financeiras Empresariais</h3>
@@ -123,14 +124,14 @@ with col2:
         com inteligência financeira e segurança institucional.
         </p>
         <br>
-        <a href="https://wa.me/5521967184404" target="_blank" class="cta">
+        <a href="{WHATS_LINK}" target="_blank" class="cta">
             Falar com um Especialista
         </a>
     </div>
     """, unsafe_allow_html=True)
 
 # ===============================
-# SERVIÇOS
+# SOLUÇÕES
 # ===============================
 st.markdown('<div class="section-title">Soluções Financeiras</div>', unsafe_allow_html=True)
 
@@ -175,56 +176,10 @@ with c3:
     """, unsafe_allow_html=True)
 
 # ===============================
-# SOBRE
+# WHATSAPP FLUTUANTE
 # ===============================
-st.markdown("""
-<div class="card">
-<span class="badge">Institucional</span>
-<h2>18 anos conectando empresas às melhores estruturas financeiras</h2>
-<p>
-Somos um hub financeiro que conecta empresas e investidores às principais
-instituições bancárias, fundos e estruturas do mercado.
-</p>
-<p>
-Já estruturamos mais de <strong>R$ 10,8 bilhões em crédito</strong>,
-atendendo mais de <strong>120 mil clientes</strong>, com assertividade,
-segurança jurídica e processos auditáveis.
-</p>
-</div>
-""", unsafe_allow_html=True)
-
-# ===============================
-# PERFORMANCE
-# ===============================
-st.markdown("""
-<div class="card">
-<span class="badge">Nossos Números</span>
-<ul>
-<li><strong>+120.000</strong> clientes atendidos</li>
-<li><strong>R$ 10,8 bilhões</strong> em crédito estruturado</li>
-<li><strong>78%</strong> de assertividade</li>
-<li>Liberação média entre <strong>30 e 90 dias</strong></li>
-</ul>
-</div>
-""", unsafe_allow_html=True)
-
-# ===============================
-# CONTATO
-# ===============================
-st.markdown("""
-<div class="card">
-<span class="badge">Contato</span>
-<p><strong>E-mail:</strong> contato@investbankcompany.com.br</p>
-<p><strong>Telefone:</strong> (11) 3120-3001</p>
-<p><strong>CNPJ:</strong> 11.465.461/0001-56</p>
-</div>
-""", unsafe_allow_html=True)
-
-# ===============================
-# WHATSAPP
-# ===============================
-st.markdown("""
-<a href="https://wa.me/5521967184404" target="_blank" class="whats">☎</a>
+st.markdown(f"""
+<a href="{WHATS_LINK}" target="_blank" class="whats">☎</a>
 """, unsafe_allow_html=True)
 
 # ===============================
@@ -235,6 +190,7 @@ st.markdown("""
 © 2026 Invest Money Bank • Banco Digital de Soluções Financeiras
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
