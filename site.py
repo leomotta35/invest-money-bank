@@ -5,270 +5,236 @@ from PIL import Image
 # CONFIGURAÇÃO DA PÁGINA
 # ===============================
 st.set_page_config(
-    page_title="Invest Money Bank",
-    page_icon="💰",
-    layout="centered"
+    page_title="Invest Money Bank | Banco Digital",
+    page_icon="🏦",
+    layout="wide"
 )
 
-# ===============================
-# LOGO
-# ===============================
 logo = Image.open("logo.jpeg")
 
 # ===============================
-# CSS PERSONALIZADO
+# CSS PREMIUM
 # ===============================
 st.markdown("""
 <style>
-.main { background-color: #f5f6fa; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-.header {
-    background: linear-gradient(135deg, #064e3b, #16a34a);
-    padding: 30px;
-    border-radius: 16px;
-    text-align: center;
-    color: white;
-    margin-bottom: 35px;
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif;
 }
 
+.main {
+    background-color: #f4f6f9;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(135deg, #052e1c, #0f5132);
+    padding: 60px;
+    border-radius: 24px;
+    color: white;
+    margin-bottom: 50px;
+}
+
+/* CARDS */
 .card {
     background: white;
-    padding: 26px;
-    border-radius: 16px;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-    margin-bottom: 26px;
+    padding: 28px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
 }
 
+/* TITLES */
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: #052e1c;
+}
+
+/* BADGE */
 .badge {
     background: #16a34a;
     color: white;
-    padding: 6px 14px;
+    padding: 6px 16px;
     border-radius: 30px;
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 600;
     display: inline-block;
     margin-bottom: 12px;
 }
 
-.footer {
-    text-align: center;
-    color: gray;
-    font-size: 14px;
-    margin-top: 50px;
-    padding-bottom: 20px;
+/* CTA */
+.cta {
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    padding: 18px 36px;
+    border-radius: 18px;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 18px;
 }
 
-.btn-whats {
+/* WHATSAPP */
+.whats {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background-color: #25d366;
-    color: white;
-    width: 62px;
-    height: 62px;
+    bottom: 28px;
+    right: 28px;
+    background: #25d366;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
-    font-size: 28px;
+    font-size: 30px;
+    color: white;
     text-align: center;
-    line-height: 62px;
+    line-height: 64px;
     text-decoration: none;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.3);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
     z-index: 9999;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+    margin-top: 60px;
+    padding-bottom: 30px;
 }
 </style>
 """, unsafe_allow_html=True)
 
 # ===============================
-# CABEÇALHO
+# HERO (TOPO)
 # ===============================
-st.markdown('<div class="header">', unsafe_allow_html=True)
-st.image(logo, width=150)
+col1, col2 = st.columns([1, 2])
+
+with col1:
+    st.image(logo, width=180)
+
+with col2:
+    st.markdown("""
+    <div class="hero">
+        <h1>Invest Money Bank</h1>
+        <h3>Banco Digital de Soluções Financeiras Empresariais</h3>
+        <p>
+        Crédito estruturado, capital de giro, consórcios e soluções patrimoniais
+        com inteligência financeira e segurança institucional.
+        </p>
+        <br>
+        <a href="https://wa.me/5521967184404" target="_blank" class="cta">
+            Falar com um Especialista
+        </a>
+    </div>
+    """, unsafe_allow_html=True)
+
+# ===============================
+# SERVIÇOS
+# ===============================
+st.markdown('<div class="section-title">Soluções Financeiras</div>', unsafe_allow_html=True)
+
+c1, c2, c3 = st.columns(3)
+
+with c1:
+    st.markdown("""
+    <div class="card">
+    <span class="badge">Crédito</span>
+    <ul>
+        <li>Capital de Giro</li>
+        <li>Empréstimos Empresariais</li>
+        <li>Home Equity</li>
+        <li>CGI e CGA</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
+
+with c2:
+    st.markdown("""
+    <div class="card">
+    <span class="badge">Estruturado</span>
+    <ul>
+        <li>CCB Tokenizada</li>
+        <li>CRI / CRA</li>
+        <li>FIDC</li>
+        <li>Debêntures</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
+
+with c3:
+    st.markdown("""
+    <div class="card">
+    <span class="badge">Planejamento</span>
+    <ul>
+        <li>Consórcios Estratégicos</li>
+        <li>Financiamento Imobiliário</li>
+        <li>Crédito Patrimonial</li>
+    </ul>
+    </div>
+    """, unsafe_allow_html=True)
+
+# ===============================
+# SOBRE
+# ===============================
 st.markdown("""
-<h1>Invest Money Bank</h1>
-<p><strong>Soluções Financeiras Empresariais e Patrimoniais</strong></p>
+<div class="card">
+<span class="badge">Institucional</span>
+<h2>18 anos conectando empresas às melhores estruturas financeiras</h2>
+<p>
+Somos um hub financeiro que conecta empresas e investidores às principais
+instituições bancárias, fundos e estruturas do mercado.
+</p>
+<p>
+Já estruturamos mais de <strong>R$ 10,8 bilhões em crédito</strong>,
+atendendo mais de <strong>120 mil clientes</strong>, com assertividade,
+segurança jurídica e processos auditáveis.
+</p>
 </div>
 """, unsafe_allow_html=True)
 
 # ===============================
-# SERVIÇOS (ORIGINAL)
+# PERFORMANCE
 # ===============================
 st.markdown("""
 <div class="card">
-<span class="badge">Nossos Serviços</span>
+<span class="badge">Nossos Números</span>
 <ul>
-<li>Capital de Giro</li>
-<li>Empréstimos Empresariais</li>
-<li>Crédito Personalizado</li>
-<li>Home Equity</li>
-<li>CGI e CGA</li>
-<li>Consórcio</li>
+<li><strong>+120.000</strong> clientes atendidos</li>
+<li><strong>R$ 10,8 bilhões</strong> em crédito estruturado</li>
+<li><strong>78%</strong> de assertividade</li>
+<li>Liberação média entre <strong>30 e 90 dias</strong></li>
 </ul>
 </div>
 """, unsafe_allow_html=True)
 
 # ===============================
-# CAPITAL DE GIRO (ORIGINAL)
-# ===============================
-st.markdown("""
-<div class="card">
-<span class="badge">Capital de Giro – Melhores Taxas do Mercado</span>
-
-<p>
-O <strong>Invest Money Bank</strong> atua há <strong>18 anos</strong> no mercado financeiro,
-sendo parceiro master dos principais bancos do Brasil, o que nos permite oferecer
-linhas de capital de giro com condições diferenciadas e taxas altamente competitivas
-para empresas de todos os portes.
-</p>
-
-<p>
-Nossas soluções são estruturadas para fortalecer o fluxo de caixa,
-ampliar investimentos e apoiar o crescimento do seu negócio.
-</p>
-
-<p>
-Colocamo-nos à disposição para agendar uma reunião e avaliar,
-de forma totalmente personalizada, a melhor proposta de crédito para sua empresa.
-</p>
-</div>
-""", unsafe_allow_html=True)
-
-# ===============================
-# SOBRE NÓS (PDF)
-# ===============================
-st.markdown("""
-<div class="card">
-<span class="badge">Sobre Nós</span>
-<p>
-Somos um <strong>hub completo de crédito e soluções financeiras</strong>.
-Atuamos junto aos maiores bancos, fundos e estruturas do mercado,
-oferecendo acesso a <strong>mais de 20 linhas de crédito</strong>.
-</p>
-
-<p>
-Nosso compromisso é entregar soluções financeiras
-<strong>seguras, eficientes e personalizadas</strong>,
-sempre com transparência, estratégia e atendimento humano.
-</p>
-
-<p><strong>Seu parceiro financeiro estratégico.</strong></p>
-</div>
-""", unsafe_allow_html=True)
-
-# ===============================
-# DIFERENCIAIS (PDF)
-# ===============================
-st.markdown("""
-<div class="card">
-<span class="badge">Nossos Diferenciais</span>
-<ul>
-<li>Acesso facilitado aos principais bancos e fundos do país</li>
-<li>Atendimento consultivo e personalizado</li>
-<li>Especialistas dedicados do início à liberação</li>
-<li>Processos seguros, compliance e LGPD</li>
-</ul>
-</div>
-""", unsafe_allow_html=True)
-
-# ===============================
-# SOLUÇÕES FINANCEIRAS (PDF + ORIGINAL)
-# ===============================
-st.markdown("""
-<div class="card">
-<span class="badge">Soluções Financeiras</span>
-<ul>
-<li><strong>Capital de Giro:</strong> com e sem garantia</li>
-<li><strong>Crédito com Garantia:</strong> Imóvel (CGI) e Veículo (CGA)</li>
-<li><strong>Home Equity:</strong> crédito com taxas reduzidas</li>
-<li><strong>Consórcios Estratégicos:</strong> imóveis, veículos e ativos</li>
-<li><strong>Financiamento Imobiliário</strong></li>
-</ul>
-</div>
-""", unsafe_allow_html=True)
-
-# ===============================
-# CRÉDITOS ESTRUTURADOS (PDF)
-# ===============================
-st.markdown("""
-<div class="card">
-<span class="badge">Créditos Estruturados</span>
-<ul>
-<li>CCB Tokenizada</li>
-<li>CRI – Certificados de Recebíveis Imobiliários</li>
-<li>CRA – Certificados de Recebíveis do Agronegócio</li>
-<li>FIDC – Fundos de Investimento em Direitos Creditórios</li>
-<li>Debêntures (inclusive incentivadas)</li>
-</ul>
-</div>
-""", unsafe_allow_html=True)
-
-# ===============================
-# PERFORMANCE (PDF)
-# ===============================
-st.markdown("""
-<div class="card">
-<span class="badge">Nossos Resultados</span>
-<ul>
-<li>+120.000 clientes atendidos (PF e PJ)</li>
-<li>R$ 10,8 bilhões em crédito concedido</li>
-<li>R$ 240 milhões faturados nos últimos 90 dias</li>
-<li>78% de assertividade nas operações</li>
-<li>Liberação média entre 30 e 90 dias</li>
-</ul>
-</div>
-""", unsafe_allow_html=True)
-
-# ===============================
-# JORNADA DO CLIENTE (PDF)
-# ===============================
-st.markdown("""
-<div class="card">
-<span class="badge">Como Trabalhamos</span>
-<ol>
-<li>Análise e diagnóstico financeiro</li>
-<li>Estruturação e busca das melhores propostas</li>
-<li>Apresentação clara e objetiva</li>
-<li>Formalização e liberação do crédito</li>
-</ol>
-</div>
-""", unsafe_allow_html=True)
-
-# ===============================
-# CONTATO (PDF)
+# CONTATO
 # ===============================
 st.markdown("""
 <div class="card">
 <span class="badge">Contato</span>
 <p><strong>E-mail:</strong> contato@investbankcompany.com.br</p>
 <p><strong>Telefone:</strong> (11) 3120-3001</p>
-<p><strong>Website:</strong> voce.investbankcompany.com.br</p>
 <p><strong>CNPJ:</strong> 11.465.461/0001-56</p>
 </div>
 """, unsafe_allow_html=True)
 
 # ===============================
-# CTA FINAL
+# WHATSAPP
 # ===============================
 st.markdown("""
-<div style="text-align:center; margin-bottom: 40px;">
-<a href="https://wa.me/5521967184404" target="_blank"
-style="background:#16a34a;color:white;padding:14px 26px;
-border-radius:14px;font-weight:bold;text-decoration:none;">
-Falar com um Especialista
-</a>
-</div>
+<a href="https://wa.me/5521967184404" target="_blank" class="whats">☎</a>
 """, unsafe_allow_html=True)
 
 # ===============================
-# WHATSAPP FLUTUANTE
-# ===============================
-st.markdown("""
-<a href="https://wa.me/5521967184404" target="_blank" class="btn-whats">☎</a>
-""", unsafe_allow_html=True)
-
-# ===============================
-# RODAPÉ
+# FOOTER
 # ===============================
 st.markdown("""
 <div class="footer">
-© 2026 Invest Money Bank • Soluções Financeiras Empresariais
+© 2026 Invest Money Bank • Banco Digital de Soluções Financeiras
 </div>
 """, unsafe_allow_html=True)
+
+
 
