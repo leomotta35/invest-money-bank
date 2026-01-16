@@ -127,23 +127,24 @@ html, body, [class*="css"] {
 # =====================================================
 # HEADER + NAVEGAÇÃO
 # =====================================================
-st.markdown("""
-<div class="header">
-<table style="width:100%;">
-<tr>
-<td style="width:25%;">
-<img src="logo.jpeg" width="140">
-</td>
-<td style="text-align:right;">
-<a href="#inicio">Início</a> &nbsp;&nbsp;
-<a href="#solucoes">Soluções</a> &nbsp;&nbsp;
-<a href="#institucional">Institucional</a> &nbsp;&nbsp;
-<a href="#contato">Contato</a>
-</td>
-</tr>
-</table>
-</div>
-""", unsafe_allow_html=True)
+st.markdown('<div class="header">', unsafe_allow_html=True)
+
+col_logo, col_menu = st.columns([1, 3])
+
+with col_logo:
+    st.image(logo, width=140)
+
+with col_menu:
+    st.markdown("""
+    <div style="text-align:right; padding-top:30px;">
+        <a href="#inicio">Início</a>&nbsp;&nbsp;&nbsp;
+        <a href="#solucoes">Soluções</a>&nbsp;&nbsp;&nbsp;
+        <a href="#institucional">Institucional</a>&nbsp;&nbsp;&nbsp;
+        <a href="#contato">Contato</a>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 # =====================================================
 # HERO
@@ -281,6 +282,7 @@ st.markdown("""
 <p>© 2026 • Todos os direitos reservados</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
